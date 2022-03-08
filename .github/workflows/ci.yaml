@@ -7,8 +7,9 @@ jobs:
     name: verify nix shell is properly instantiated for no pre-installed nix
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2.4.0
-       # Flakes do not like shallow clones
-      with:
-        fetch-depth: 0
-    - run: ./nix-shell.sh
+      - uses:
+          actions/checkout@v2.4.0
+          # Flakes do not like shallow clones
+        with:
+          fetch-depth: 0
+      - run: ./nix-shell.sh
